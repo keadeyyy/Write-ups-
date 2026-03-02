@@ -19,4 +19,11 @@ Input:
 
   Output:
     746865206b696420646f6e277420706c6179
-                  
+
+NOTES:
+>def fixed_xor(hex1, hex2):
+      - Defines a function that takes two hex-encoded strings.
+      - function name: fixed_or
+      - inputs: hex1 and hex2
+      - def: creator for the function
+> 
