@@ -1,0 +1,82 @@
+5. Implement repeating-key XOR
+
+Encrypting with the key "ICE".
+
+Step 1
+Plain text: Burning 'em, if you ain't quick and nimble\nI go crazy when I hear a cymbal 
+       Key: ICEICEICEICEICEICEICEICEICEICEICEICEICEICEICEICEICEICEICEICEICEICEICEICEICE
+
+Step 2
+  > Converting Plain Text and Key to ASCII
+
+    Key -> ASCII
+      73 67 69
+    Plain Text -> ASCII
+      66 117 114 110 105 110 103 32 39 101 109 44 32 105 102 32
+      121 111 117 32 97 105 110 39 116 32 113 117 105 99 107 32     // space = 32
+      97 110 100 32 110 105 109 98 108 101 10                       //new line = 10
+      73 32 103 111 32 99 114 97 122 121 32 119 104 101 110 32
+      73 32 104 101 97 114 32 97 32 99 121 109 98 97 108
+
+Step 3
+  > XOR Key and Plain text ASCII
+    0b3637272a2b2e63622c2e69692a23693a2a3c6324202d623d63343c2a26226324272765272
+    a282b2f20430a652e2c652a3124333a653e2b2027630c692b20283165286326302e27282f
+
+
+To make it easier and automatic... 
+
+  CODE (Java)
+    public class RepeatingKeyXOR {
+
+    public static void main(String[] args) {
+
+        String plaintext = "Burning 'em, if you ain't quick and nimble\n"
+                         + "I go crazy when I hear a cymbal";
+
+        String key = "ICE";
+
+        StringBuilder hexResult = new StringBuilder();
+
+        for (int i = 0; i < plaintext.length(); i++) {
+
+            // Repeat key using modulo
+            char keyChar = key.charAt(i % key.length());
+
+            // XOR plaintext character with key character
+            int xorValue = plaintext.charAt(i) ^ keyChar;
+
+            // Convert to 2-digit hex
+            hexResult.append(String.format("%02x", xorValue));
+        }
+
+        System.out.println(hexResult.toString());
+    }
+}
+
+Notes:
+
+> StringBuilder hexResult = new StringBuilder();
+  - StringBuilder = used for long strings
+> for (int i = 0; i < plaintext.length(); i++)
+  - go through all one by one until the end of the plain text
+> char keyChar = key.charAt(i % key.length());
+  - to repeat automatically
+  key = ICE
+  key.length() = 3
+    So, i%3 would be just 012012012012012
+    key[0] = I
+    key[1] = C
+    key[2] = E
+    key[0] = I
+    key[1] = C
+    ...
+> int xorValue = plaintext.charAt(i) ^ keyChar;
+  - XOR's Key and Plain text
+    B = 66
+    I = 73
+    66 ^ 73 = 11
+> hexResult.append(String.format("%02x", xorValue));
+  - %02x = convert to hexadecimal in 2 digits and add 0 first if needed
+    11 → 0b
+    54 → 36

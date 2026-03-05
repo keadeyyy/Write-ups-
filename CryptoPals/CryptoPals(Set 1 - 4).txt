@@ -1,0 +1,21 @@
+4. Single-byte XOR cipher
+  still uses number 3.
+
+1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736
+
+Step 1: Find the number that is repeated the most
+  - 78
+then, hex -> dec... so, 78 = 120
+Step 2: WE GUESS
+Normal English text:
+  - most common character is space
+  - space in ASCII = hex: 0x20, decimal: 32
+Step 3: if 78 = space
+          then 120 ^ 32 = 88
+Step 4:   0 1 1 1 1 0 0 0
+        ^ 0 0 1 0 0 0 0 0
+        __________________
+          0 1 0 1 1 0 0 0 = 88 (USE THIS BINARY)
+        Symbol: X
+
+The Key: 88 = X
