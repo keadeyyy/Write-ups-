@@ -1,0 +1,74 @@
+CRYPTOHACK Challenge: Base64 (General)
+Points: 10
+Category: Cryptography / Python Basics
+Platform: CryptoHack
+
+Definition: 
+Another common encoding scheme is Base64, which allows us to represent binary data as an 
+ASCII string using an alphabet of 64 characters. One character of a Base64 string encodes 
+6 binary digits (bits), and so 4 characters of Base64 encode three 8-bit bytes.
+
+Base64 is most commonly used online, so binary data such as images can be easily included 
+into HTML or CSS files.
+
+Take the below hex string, decode it into bytes and then encode it into Base64.
+
+        72bca9b68fc16ac7beeb8f849dca1d8a783e8acf9679bf9269f7bf
+
+
+Manual Solution:
+
+> Pairing Hex
+72 bc a9 b6 8f c1 6a c7 be eb 8f 84 9d ca 1d 8a
+78 3e 8a cf 96 79 bf 92 69 f7 bf
+
+> Convert Hex to Bytes
+| Hex | Decimal |
+| --- | ------- |
+| 72  | 114     |
+| bc  | 188     |
+| a9  | 169     |
+| b6  | 182     |
+| 8f  | 143     |
+| c1  | 193     |
+| 6a  | 106     |
+| c7  | 199     |
+| be  | 190     |
+| eb  | 235     |
+| 8f  | 143     |
+| 84  | 132     |
+| 9d  | 157     |
+| ca  | 202     |
+| 1d  | 29      |
+| 8a  | 138     |
+| 78  | 120     |
+| 3e  | 62      |
+| 8a  | 138     |
+| cf  | 207     |
+| 96  | 150     |
+| 79  | 121     |
+| bf  | 191     |
+| 92  | 146     |
+| 69  | 105     |
+| f7  | 247     |
+| bf  | 191     |
+
+> Encode the Bytes to Base64
+    Base64 Table Reference
+    | Value | Char |
+    | ----- | ---- |
+    | 0–25  | A–Z  |
+    | 26–51 | a–z  |
+    | 52–61 | 0–9  |
+    | 62    | +    |
+    | 63    | /    |
+
+> Final Base64 String:
+crypto/Base+64+Encoding+is+Web+Safe/
+
+Conclusion:
+This CryptoHack challenge shows how data can be converted between hexadecimal and Base64 encoding. 
+By decoding the hex string into bytes and then encoding those bytes into Base64, 
+the final result was: crypto/Base+64+Encoding+is+Web+Safe/.
+
+
