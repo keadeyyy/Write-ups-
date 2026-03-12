@@ -1,0 +1,60 @@
+CHALLENGE 01 - picoCTF: Sudo Make Me a Sandwich
+
+Challenge: Sudo Make Me a Sandwich
+Platform: picoCTF
+Category: General Skills
+Points: 50
+
+## Description
+
+- The challenge asks the user to connect to a remote machine and find the flag. The hint suggests checking **what permissions the user has**, which implies that the solution involves using **sudo privileges**.
+
+## Step 1: Connect to the Server
+- First, connect to the challenge machine using SSH.
+    /bash
+    ssh -p 59460 ctf-player@green-hill.picoctf.net
+    Password:deebe023
+This logs us into the remote Linux environment.
+
+## Step 2: Check Sudo Permissions
+- Next, we check what commands the user is allowed to run with sudo.
+    /bash
+    sudo -l
+    Output:
+User ctf-player may run the following commands on challenge:
+(ALL) NOPASSWD: /bin/emacs
+  :This means the user can run **GNU Emacs as root without a password.
+
+## Step 3: Launch Emacs with Root Privileges
+- Run Emacs using sudo:
+    /bash
+    sudo /bin/emacs
+Because Emacs is running with root privileges, we can spawn a root shell inside it.
+
+## Step 4: Spawn a Root Shell
+
+Inside Emacs:
+1. Press **Alt + X**
+2. Type: shell
+This opens a terminal inside Emacs running as **root**.
+
+## Step 5: Locate and Read the Flag
+- Now that we have root access, we can read the flag file.
+    /bash
+    cat /home/ctf-player/flag.txt
+    Output: picoCTF{ju57_5ud0_17_ce7ea3f7}
+## Flag
+
+picoCTF{ju57_5ud0_17_ce7ea3f7}
+
+
+## What I Learned
+
+> How to use **`sudo -l`** to check user privileges.
+> Some programs like **GNU Emacs can be abused to gain a root shell.
+> Misconfigured sudo permissions can lead to **privilege escalation**.
+
+✅ Conclusion:
+The challenge demonstrates how allowing a user to run certain programs with `sudo` can be dangerous, 
+because those programs may allow execution of arbitrary commands with root privileges.
+
