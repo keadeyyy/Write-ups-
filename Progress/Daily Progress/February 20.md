@@ -21,7 +21,7 @@
 | Difficulty      | Challenges Solved | Points Earned |
 | --------------- | ----------------- | ------------- |
 | Easy            | _____ × 5 pts     | _____         |
-| Medium          | _____ × 15 pts    | _____         |
+| Medium          | 1 × 15 pts    | 15         |
 | Hard            | _____ × 30 pts    | _____         |
 | Expert          | _____ × 50 pts    | _____         |
 | **Daily Total** |                   | **_____**     |
