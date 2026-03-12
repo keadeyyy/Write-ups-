@@ -2,13 +2,13 @@
 
 ## Daily Training Log
 
-**Date:** _______________ | **Training Day:** ___/180 (or ___/90 for 3-month plan)
+**Date:** February 16, 2025  | **Training Day:** 2/90 che
 
 ### 1. Time Investment
 
-- [ ] Training time today: _______ hours
-- [ ] Goal met? (Yes/No)
-- [ ] Consistency streak: _____ days
+- [✔] Training time today: 1.5 hours
+- [✔] Goal met? (Yes/No)
+- [✔] Consistency streak: 2 days
 
 **Points:**
 
@@ -22,20 +22,20 @@
 | Difficulty      | Challenges Solved | Points Earned |
 | --------------- | ----------------- | ------------- |
 | Easy            | _____ × 5 pts     | _____         |
-| Medium          | _____ × 15 pts    | _____         |
+| Medium          | 1 × 15 pts    | 15         |
 | Hard            | _____ × 30 pts    | _____         |
 | Expert          | _____ × 50 pts    | _____         |
 | **Daily Total** |                   | **_____**     |
 
 ### 3. Quality Indicators
 
-- [ ] Created writeup for at least 1 challenge (+10 pts)
-- [ ] Reviewed 3+ writeups from others (+5 pts)
-- [ ] Learned new technique/tool (+10 pts)
+- [✔] Created writeup for at least 1 challenge (+10 pts)
+- [✔] Reviewed 3+ writeups from others (+5 pts)
+- [✔] Learned new technique/tool (+10 pts)
 - [ ] Updated cheat sheet (+5 pts)
-- [ ] Practiced timed challenge (+5 pts)
+- [✔] Practiced timed challenge (+5 pts)
 
-**Quality Points Total:** _____
+**Quality Points Total:** 30
 
 ### 4. Category Focus Today
 
@@ -43,32 +43,32 @@ Which categories did you practice?
 
 - [ ] Web Exploitation
 - [ ] Binary Exploitation / Pwn
-- [ ] Cryptography
+- [✔] Cryptography
 - [ ] Reverse Engineering
 - [ ] Forensics
 - [ ] OSINT
 - [ ] Other: ___________
 
-**Primary Specialty:** _____ minutes
+**Primary Specialty:** 90 minutes
 
-**Secondary Specialty:** _____ minutes
+**Secondary Specialty:** 0 minutes
 
-**Other Categories:** _____ minutes
+**Other Categories:** 0 minutes
 
 ### 5. Reflection (Qualitative)
 
 **What went well today?**
 
----
+-Reviewed ASCII tables and hexadecimal conversions.
 
 **What challenged you?**
 
----
+-Familiarizing how characters map to ASCII values.
 
 **Key learning:**
 
----
+-Hexadecimal values correspond to ASCII characters.
 
 **Tomorrow's focus:**
 
----
+-Begin Fixed XOR challenge.
