@@ -1,0 +1,57 @@
+CRYPTOHACK Challenge: Network Attacks 
+Points: 3
+Category: Cryptography / Python Basics
+Platform: CryptoHack
+
+
+Several of the challenges are dynamic and require you to talk to our challenge servers over the network. 
+This allows you to perform man-in-the-middle attacks on people trying to communicate, or directly attack 
+a vulnerable service. To keep things consistent, our interactive servers always send and receive JSON 
+objects. Python makes such network communication easy with the telnetlib module. Conveniently, it's part 
+of Python's standard library, so let's use it for now. For this challenge, connect to socket.cryptohack.org
+on port 11112. Send a JSON object with the key buy and value flag. The example script below contains the
+beginnings of a solution for you to modify, and you can reuse it for later challenges.
+Connect at nc socket.cryptohack.org 11112
+
+Input: 
+#!/usr/bin/env python3
+
+import telnetlib
+import json
+
+HOST = "socket.cryptohack.org"
+PORT = 11112
+
+tn = telnetlib.Telnet(HOST, PORT)
+
+def readline():
+    return tn.read_until(b"\n")
+
+def json_recv():
+    line = readline()
+    return json.loads(line.decode())
+
+def json_send(hsh):
+    request = json.dumps(hsh).encode()
+    tn.write(request)
+
+print(readline())
+print(readline())
+print(readline())
+print(readline())
+
+request = {
+    "buy": "flag"
+}
+
+json_send(request)
+response = json_recv()
+print(response)
+
+Output:
+$ python3 telnetlib_example_dbc6ff5dc4dcfac568d7978a801d3ead.py
+# b"Welcome to netcat's flag shop!\n"
+# b'What would you like to buy?\n'
+# b"I only speak JSON, I hope that's ok.\n"
+# b'\n'
+# {'flag': 'crypto{sh0pp1ng_f0r_fl4g5}'}
