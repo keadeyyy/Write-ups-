@@ -2,13 +2,13 @@
 
 ## Daily Training Log
 
-**Date:** _______________ | **Training Day:** ___/180 (or ___/90 for 3-month plan)
+**Date:** February 22, 2026 | **Training Day:** 8/90
 
 ### 1. Time Investment
 
-- [ ] Training time today: _______ hours
-- [ ] Goal met? (Yes/No)
-- [ ] Consistency streak: _____ days
+- [✔] Training time today: 1 hour
+- [✔] Goal met? (Yes/No)
+- [✔] Consistency streak: 8 days
 
 **Points:**
 
@@ -30,7 +30,7 @@
 ### 3. Quality Indicators
 
 - [ ] Created writeup for at least 1 challenge (+10 pts)
-- [ ] Reviewed 3+ writeups from others (+5 pts)
+- [✔] Reviewed 3+ writeups from others (+5 pts)
 - [ ] Learned new technique/tool (+10 pts)
 - [ ] Updated cheat sheet (+5 pts)
 - [ ] Practiced timed challenge (+5 pts)
