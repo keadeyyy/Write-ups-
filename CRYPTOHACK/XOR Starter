@@ -1,0 +1,53 @@
+CRYPTOHACK Challenge: XOR Starter (General)
+Points: 5
+Category: Cryptography / Python Basics
+Platform: CryptoHack
+
+Definition:
+XOR is a bitwise operator which returns 0 if the bits are the same, and 1 otherwise. 
+In textbooks the XOR operator is denoted by ⊕, but in most challenges and programming 
+languages you will see the caret ^ used instead.
+A	B	Output
+0	0	0
+0	1	1
+1	0	1
+1	1	0
+For longer binary numbers we XOR bit by bit: 0110 ^ 1010 = 1100. We can XOR integers by 
+first converting the integer from decimal to binary. We can XOR strings by first converting 
+each character to the integer representing the Unicode character.
+
+Given the string label, XOR each character with the integer 13. Convert these integers back 
+to a string and submit the flag as crypto{new_string}.
+
+
+Manual Solution:
+
+> Convert Characters to ASCII
+| Character | ASCII |
+| --------- | ----- |
+| l         | 108   |
+| a         | 97    |
+| b         | 98    |
+| e         | 101   |
+| l         | 108   |
+
+> XOR Each Value with 13
+ASCII_value ^ 13
+| Character | ASCII | XOR 13   | Result ASCII | Character |
+| --------- | ----- | -------- | ------------ | --------- |
+| l         | 108   | 108 ^ 13 | 97           | a         |
+| a         | 97    | 97 ^ 13  | 108          | l         |
+| b         | 98    | 98 ^ 13  | 111          | o         |
+| e         | 101   | 101 ^ 13 | 104          | h         |
+| l         | 108   | 108 ^ 13 | 97           | a         |
+
+> Combine the Characters
+Result: aloha
+
+> Final Flag: 
+crypto{aloha}
+
+Conclusion:
+This CryptoHack challenge shows how the **XOR operation** can be used to transform text. 
+By XORing each character of `label` with **13**, the new string **`aloha`** was produced, g
+iving the flag **`crypto{aloha}`**.
