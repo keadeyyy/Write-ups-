@@ -50,52 +50,48 @@ Result: 63727970746f7b33766572795f6c617267655f6e756d626572735f6172655f636f6f6c7d
 | 6f  | o     |
 | 7b  | {     |
 | 33  | 3     |
-| 76  | v     |
-| 65  | e     |
-| 72  | r     |
+| 6e  | n     |
+| 63  | c     |
+| 30  | 0     |
+| 64  | d     |
+| 31  | 1     |
+| 6e  | n     |
+| 36  | 6     |
+| 5f  | _     |
+| 34  | 4     |
+| 6c  | l     |
+| 6c  | l     |
+| 5f  | _     |
+| 37  | 7     |
+| 68  | h     |
+| 33  | 3     |
+| 5f  | _     |
+| 77  | w     |
+| 34  | 4     |
 | 79  | y     |
 | 5f  | _     |
-| 6c  | l     |
-| 61  | a     |
-| 72  | r     |
-| 67  | g     |
-| 65  | e     |
-| 5f  | _     |
+| 64  | d     |
+| 30  | 0     |
+| 77  | w     |
 | 6e  | n     |
-| 75  | u     |
-| 6d  | m     |
-| 62  | b     |
-| 65  | e     |
-| 72  | r     |
-| 73  | s     |
-| 5f  | _     |
-| 61  | a     |
-| 72  | r     |
-| 65  | e     |
-| 5f  | _     |
-| 63  | c     |
-| 6f  | o     |
-| 6f  | o     |
-| 6c  | l     |
 | 7d  | }     |
 
 #CODE
 -Python Solution:
 
-    from Crypto.Util.number import long_to_bytes
-    
-    n = 11515195063862318899931685488813747395775516287289682636499965282714637259206269
-    
-    print(long_to_bytes(n))
+      from Crypto.Util.number import long_to_bytes
+
+      n = 11515195063862318899931685488813747395775516287289682636499965282714637259206269
+
+      print(long_to_bytes(n))
 
 
 
 Final Message:
-    crypto{3very_large_numbers_are_cool}
+    crypto{3nc0d1n6_4ll_7h3_w4y_d0wn}
 
 
 
 Conclusion:
-This CryptoHack challenge shows how messages can be converted between numbers and text. 
-By converting the large integer to hex and then to ASCII, the hidden message 
-crypto{3very_large_numbers_are_cool} was revealed.
+This challenge shows how cryptographic systems convert messages into large numbers. 
+By converting the number back into bytes, we revealed the flag crypto{3nc0d1n6_4ll_7h3_w4y_d0wn}.
