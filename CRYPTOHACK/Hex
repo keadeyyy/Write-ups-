@@ -1,0 +1,91 @@
+CRYPTOHACK Challenge: Hex (General)
+Points: 5
+Category: Cryptography / Python Basics
+Platform: CryptoHack
+
+Description:
+  When we encrypt something the resulting ciphertext commonly has bytes which are not printable ASCII characters. 
+If we want to share our encrypted data, it's common to encode it into something more user-friendly and portable 
+across different systems.
+  Hexadecimal can be used in such a way to represent ASCII strings. First each letter is converted to an ordinal 
+number according to the ASCII table (as in the previous challenge). Then the decimal numbers are converted to 
+base-16 numbers, otherwise known as hexadecimal. The numbers can be combined together, into one long hex string.
+
+Included below is a flag encoded as a hex string. Decode this back into bytes to get the flag.
+
+      63727970746f7b596f755f77696c6c5f62655f776f726b696e675f776974685f6865785f737472696e67735f615f6c6f747d
+
+
+Manual Solution:
+
+> Hex String: 63727970746f7b596f755f77696c6c5f62655f776f726b696e675f776974685f6865785f737472696e67735f615f6c6f747d
+
+> Split into pairs:
+63 72 79 70 74 6f 7b 59 6f 75 5f 77 69 6c 6c 5f
+62 65 5f 77 6f 72 6b 69 6e 67 5f 77 69 74 68 5f
+68 65 78 5f 73 74 72 69 6e 67 73 5f 61 5f 6c 6f
+74 7d
+
+> Convert Hex -> Decimal -> ASCII
+| Hex | Decimal | ASCII |
+| --- | ------- | ----- |
+| 63  | 99      | c     |
+| 72  | 114     | r     |
+| 79  | 121     | y     |
+| 70  | 112     | p     |
+| 74  | 116     | t     |
+| 6f  | 111     | o     |
+| 7b  | 123     | {     |
+| 59  | 89      | Y     |
+| 6f  | 111     | o     |
+| 75  | 117     | u     |
+| 5f  | 95      | _     |
+| 77  | 119     | w     |
+| 69  | 105     | i     |
+| 6c  | 108     | l     |
+| 6c  | 108     | l     |
+| 5f  | 95      | _     |
+| 62  | 98      | b     |
+| 65  | 101     | e     |
+| 5f  | 95      | _     |
+| 77  | 119     | w     |
+| 6f  | 111     | o     |
+| 72  | 114     | r     |
+| 6b  | 107     | k     |
+| 69  | 105     | i     |
+| 6e  | 110     | n     |
+| 67  | 103     | g     |
+| 5f  | 95      | _     |
+| 77  | 119     | w     |
+| 69  | 105     | i     |
+| 74  | 116     | t     |
+| 68  | 104     | h     |
+| 5f  | 95      | _     |
+| 68  | 104     | h     |
+| 65  | 101     | e     |
+| 78  | 120     | x     |
+| 5f  | 95      | _     |
+| 73  | 115     | s     |
+| 74  | 116     | t     |
+| 72  | 114     | r     |
+| 69  | 105     | i     |
+| 6e  | 110     | n     |
+| 67  | 103     | g     |
+| 73  | 115     | s     |
+| 5f  | 95      | _     |
+| 61  | 97      | a     |
+| 5f  | 95      | _     |
+| 6c  | 108     | l     |
+| 6f  | 111     | o     |
+| 74  | 116     | t     |
+| 7d  | 125     | }     |
+
+> Decoded Flag:
+crypto{You_will_be_working_with_hex_strings_a_lot}
+
+
+Conclusion:
+This CryptoHack challenge shows how hexadecimal values can be converted into 
+ASCII characters to reveal hidden text. By decoding each hex pair, 
+the flag **`crypto{You_will_be_working_with_hex_strings_a_lot}`** was obtained. 
+It highlights the importance of understanding hex and ASCII encoding in cryptography.
