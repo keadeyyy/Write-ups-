@@ -1,1 +1,33 @@
+CRYPTOHACK Challenge: ASCII (General)
+Points: 5
+Category: Cryptography / Python Basics
+Platform: CryptoHack
 
+
+ASCII is a 7-bit encoding standard which allows the representation of text using the integers 0-127.
+Using the below integer array, convert the numbers to their corresponding ASCII characters to obtain a flag.
+
+[99, 114, 121, 112, 116, 111, 123, 65, 83, 67, 73, 73, 95, 112, 114, 49, 110, 116, 52, 98, 108, 51, 125]
+
+#CODE
+Input: 
+
+//It stores a list of integers.
+//Each number represents an ASCII code.
+//ASCII codes correspond to characters.
+nums = [99,114,121,112,116,111,123,65,83,67,73,73,95,112,114,49,110,116,52,98,108,51,125]
+
+/loop through every nums on the list
+flag = "".join(chr(i) for i in ords)
+
+print(flag)
+
+Output:
+crypto{ASCII_pr1nt4bl3}
+
+Conclusion
+The ASCII challenge focuses on understanding how text can be represented using numerical 
+values through the ASCII encoding standard. By converting a list of integers into their 
+corresponding characters using Python’s chr() function, the hidden message was revealed. 
+This challenge emphasizes the importance of recognizing simple encoding techniques, which are 
+often used in cryptography and CTF challenges to hide messages in numerical form.
