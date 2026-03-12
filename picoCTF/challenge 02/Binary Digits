@@ -1,0 +1,46 @@
+picoCTF Challenge: Binary Digits Challenge
+
+Problem
+- The challenge provides a file containing **binary digits** and asks us to retrieve something meaningful from it.
+
+Observation
+- Binary data is usually stored in **bytes**, where:
+
+    1 byte = 8 bits
+
+Because of this, the first step is to **group the binary digits into sets of 8 bits**.
+
+
+Example:
+
+01001000 01100101 01101100 01101100 01101111
+
+Each 8-bit group represents a byte, which can represent characters or file data.
+
+> Step 1: Convert Binary to Bytes
+  -After grouping the binary digits into 8-bit chunks, each group was converted from **binary to hexadecimal/ASCII**.
+      The first bytes obtained were:
+          FF D8 FF E0 00 10 4A 46 49 46
+
+> Step 2: Identify the File Type
+- The byte sequence **FF D8 FF** is a known file signature (magic number) of a **JPEG** image file.
+- The following bytes **4A 46 49 46** correspond to JFIF, which confirms the file is a JPEG image.
+
+> Step 3: Reconstruct the File
+- The binary data was converted into raw bytes and saved as a .jpg file.
+- Once opened, the image revealed the hidden message.
+
+Result
+- The recovered flag from the image is:
+            picoCTF{h1dd3n_1n_th3_b1n4ry_8d00e35f}
+
+
+Conclusion
+
+- This challenge demonstrates that binary data can represent files rather than plain text. 
+By grouping bits into 8-bit bytes, identifying file signatures, and reconstructing the file, 
+the hidden information was successfully recovered.
+
+- If you want, I can also make you a **better “CTF competition” version of the write-up 
+(the format used by cybersecurity players)** so it looks more professional.
+
