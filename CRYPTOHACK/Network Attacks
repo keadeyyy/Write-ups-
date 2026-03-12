@@ -55,3 +55,10 @@ $ python3 telnetlib_example_dbc6ff5dc4dcfac568d7978a801d3ead.py
 # b"I only speak JSON, I hope that's ok.\n"
 # b'\n'
 # {'flag': 'crypto{sh0pp1ng_f0r_fl4g5}'}
+
+Conclusion:
+The Network Attacks challenge demonstrates how cryptographic problems can involve communicating 
+with remote servers instead of only solving problems locally. By connecting to a network service 
+and sending or receiving data, the user can obtain encoded information or flags. This challenge 
+helps develop basic skills in interacting with network-based systems, which is a common requirement 
+in many CTF (Capture The Flag) competitions and cybersecurity tasks.
