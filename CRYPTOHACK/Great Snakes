@@ -29,3 +29,10 @@ Output:
 $ python3 great_snakes_35381fca29d68d8f3f25c9fa0a9026fb.py
 # Here is your flag:
 # crypto{z3n_0f_pyth0n}
+
+Conclusion
+The Great Snakes challenge introduces the use of Python in cryptography. The provided script used an 
+XOR operation with the value 0x32 on a list of integers and then converted the results into characters
+using the chr() function. By running the script in Python 3, the encoded values were decoded into readable 
+text, revealing the flag. This challenge highlights how simple cryptographic operations like XOR can hide 
+information and how Python is a powerful tool for quickly writing scripts to decode such data.
