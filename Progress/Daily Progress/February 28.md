@@ -2,13 +2,13 @@
 
 ## Daily Training Log
 
-**Date:** _______________ | **Training Day:** ___/180 (or ___/90 for 3-month plan)
+**Date:** February 28, 2026 | **Training Day:** 14/90
 
 ### 1. Time Investment
 
-- [ ] Training time today: _______ hours
-- [ ] Goal met? (Yes/No)
-- [ ] Consistency streak: _____ days
+- [✔] Training time today: 1.5 hours
+- [✔] Goal met? (Yes/No)
+- [✔] Consistency streak: 14 days
 
 **Points:**
 
@@ -21,7 +21,7 @@
 
 | Difficulty      | Challenges Solved | Points Earned |
 | --------------- | ----------------- | ------------- |
-| Easy            | _____ × 5 pts     | _____         |
+| Easy            | 1 × 5 pts     | 5         |
 | Medium          | _____ × 15 pts    | _____         |
 | Hard            | _____ × 30 pts    | _____         |
 | Expert          | _____ × 50 pts    | _____         |
@@ -29,13 +29,13 @@
 
 ### 3. Quality Indicators
 
-- [ ] Created writeup for at least 1 challenge (+10 pts)
-- [ ] Reviewed 3+ writeups from others (+5 pts)
-- [ ] Learned new technique/tool (+10 pts)
+- [✔] Created writeup for at least 1 challenge (+10 pts)
+- [✔] Reviewed 3+ writeups from others (+5 pts)
+- [✔] Learned new technique/tool (+10 pts)
 - [ ] Updated cheat sheet (+5 pts)
 - [ ] Practiced timed challenge (+5 pts)
 
-**Quality Points Total:** _____
+**Quality Points Total:** 35
 
 ### 4. Category Focus Today
 
@@ -43,32 +43,32 @@ Which categories did you practice?
 
 - [ ] Web Exploitation
 - [ ] Binary Exploitation / Pwn
-- [ ] Cryptography
+- [✔] Cryptography
 - [ ] Reverse Engineering
 - [ ] Forensics
 - [ ] OSINT
 - [ ] Other: ___________
 
-**Primary Specialty:** _____ minutes
+**Primary Specialty:** 90 minutes
 
-**Secondary Specialty:** _____ minutes
+**Secondary Specialty:** 0 minutes
 
-**Other Categories:** _____ minutes
+**Other Categories:** 0 minutes
 
 ### 5. Reflection (Qualitative)
 
 **What went well today?**
 
----
+- I successfully applied the XOR operation to transform characters and reveal the hidden string.
 
 **What challenged you?**
 
----
+- Understanding how XOR operations affect ASCII values when applied to characters.
 
 **Key learning:**
 
----
+- XOR is a fundamental operation used in many cryptographic algorithms to transform or encrypt data.
 
 **Tomorrow's focus:**
 
----
+- Continue practicing cryptography challenges and review encoding techniques learned this week.
