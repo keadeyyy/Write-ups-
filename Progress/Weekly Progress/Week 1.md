@@ -6,12 +6,12 @@
 
 | Metric                 | Target | Actual | Status |
 | ---------------------- | ------ | ------ | ------ |
-| Training Hours         | 15-20  |        | ☐ ✓/✗  |
+| Training Hours         | 15-20  |        | ☐✔  |
 | Challenges Solved      | 15-25  | 5 | ☐ ✔  |
 | Live CTF Participated  | 1-2    | 1  | ☐ ✔  |
-| CTF Challenges Solved  | 2-5    | 2  | ☐ ✔  |
-| Writeups Created       | 3-5    | 23  | ☐ ✔  |
-| New Techniques Learned | 2-3    | 5  | ☐ ✔  |
+| CTF Challenges Solved  | 2-5    | 0  | ☐   |
+| Writeups Created       | 3-5    | 20  | ☐ ✔  |
+| New Techniques Learned | 2-3    | 8  | ☐ ✔  |
 
 ## Weekly Points Breakdown
 
@@ -56,16 +56,21 @@ OSINT:               _____ hours [========] ____%
 
 **Biggest challenge this week:**
 
----
-
+- Understanding different encoding formats such as Base64, hexadecimal,
+  and ASCII representations used in cryptography challenges.
+- Python Coding
+  
 **How you overcame it (or plan to):**
 
----
+- By practicing multiple decoding challenges and using Python scripts to
+  convert encoded data into readable text.
 
 **Most valuable lesson learned:**
 
----
+- Many cryptography challenges rely on recognizing patterns in encoded data
+  rather than complex encryption.
 
 **Adjustment for next week:**
 
----
+- Focus on more complex cryptographic operations such as XOR encryption and
+  begin exploring digital forensics techniques.
