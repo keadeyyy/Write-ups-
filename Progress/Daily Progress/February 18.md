@@ -35,7 +35,7 @@
 - [ ] Updated cheat sheet (+5 pts)
 - [ ] Practiced timed challenge (+5 pts)
 
-**Quality Points Total:** 20
+**Quality Points Total:** 30
 
 ### 4. Category Focus Today
 
