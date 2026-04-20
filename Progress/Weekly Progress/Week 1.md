@@ -6,30 +6,30 @@
 
 | Metric                 | Target | Actual | Status |
 | ---------------------- | ------ | ------ | ------ |
-| Training Hours         | 15-20  |        | ☐✔  |
+| Training Hours         | 15-20  |   13.5     | ☐✔  |
 | Challenges Solved      | 15-25  | 5 | ☐ ✔  |
 | Live CTF Participated  | 1-2    | 1  | ☐ ✔  |
 | CTF Challenges Solved  | 2-5    | 0  | ☐   |
-| Writeups Created       | 3-5    | 20  | ☐ ✔  |
-| New Techniques Learned | 2-3    | 8  | ☐ ✔  |
+| Writeups Created       | 3-5    | 7  | ☐ ✔  |
+| New Techniques Learned | 2-3    | 7  | ☐ ✔  |
 
 ## Weekly Points Breakdown
 
 | Source               | Points    |
 | -------------------- | --------- |
-| Training Hours       | _____     |
-| Challenges Completed | _____     |
-| Quality Bonuses      | _____     |
-| Live CTF Performance | _____     |   
-| Writeups & Learning  | _____     |
-| **Weekly Total**     | **_____** |
+| Training Hours       | 60     |
+| Challenges Completed | 25     |
+| Quality Bonuses      | 275     |
+| Live CTF Performance | 5     |   
+| Writeups & Learning  | 35     |
+| **Weekly Total**     | **400** |
 
 ## Category Distribution (Hours This Week)
 
 ```
 Web Exploitation:     _____ hours [========] ____%
-Binary Exploitation:  _____ hours [========] ____%
-Cryptography:        _____ hours [========] ____%
+Binary Exploitation:  1.5 hours [========] 11%
+Cryptography:        12 hours [========] 89%
 Reverse Engineering: _____ hours [========] ____%
 Forensics:           _____ hours [========] ____%
 OSINT:               _____ hours [========] ____%
@@ -39,18 +39,18 @@ OSINT:               _____ hours [========] ____%
 
 | Specialty  | Last Week | This Week | Change |
 | ---------- | --------- | --------- | ------ |
-| Primary #1 | _____     | _____     | _____  |
-| Primary #2 | _____     | _____     | _____  |
-| Secondary  | _____     | _____     | _____  |
+| Cryptography | 2     | 5     | +3  |
+| Encoding/Data | 2     | 6     | +4  |
+| Programming  | 1     | 3     | +2  |
 
 ## Weekly Achievements
 
-- [ ] Solved first challenge in new category
+- [✓] Solved first challenge in new category
 - [ ] Completed difficult challenge independently
 - [ ] Helped teammate solve challenge
-- [ ] Found new technique/exploit
+- [✓] Found new technique/exploit
 - [ ] Improved solve time by 20%+
-- [ ] Other: _____________________
+- [✓] Other: Built a consistent 7-day streak.
 
 ## Weekly Challenges & Lessons
 
