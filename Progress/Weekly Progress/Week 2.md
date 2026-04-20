@@ -1,13 +1,13 @@
 # Weekly Progress Summary
 
-**Week:** 1 of February | **Dates:** 02**/**15/2026 to 02**/**21/2026
+**Week:** 2 of February | **Dates:** 02**/**22/2026 to 02**/**28/2026
 
 ## Weekly Metrics
 
 | Metric                 | Target | Actual | Status |
 | ---------------------- | ------ | ------ | ------ |
-| Training Hours         | 15-20  |        | ☐ ✓/✗  |
-| Challenges Solved      | 15-25  | 5 | ☐ ✔  |
+| Training Hours         | 15-20  |   10.5     | ☐ ✓/✗  |
+| Challenges Solved      | 15-25  | 6 | ☐ ✔  |
 | Live CTF Participated  | 1-2    | 1  | ☐ ✔  |
 | CTF Challenges Solved  | 2-5    | 2  | ☐ ✔  |
 | Writeups Created       | 3-5    | 23  | ☐ ✔  |
