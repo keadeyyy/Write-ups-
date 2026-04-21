@@ -1,0 +1,25 @@
+Elliptic Curve Cryptography – Group Property
+
+Problem Summary:
+The challenge introduces Elliptic Curve Cryptography (ECC) and explains how point addition works on elliptic curves. 
+It highlights several group properties, particularly Property (d): ( P + Q = Q + P ), and asks for the term used 
+to describe groups with this property.
+
+Approach:
+From the given properties, we focus on Property (d), which states that point addition is commutative. 
+In mathematics, when a group operation satisfies commutativity, the group is given a specific name.
+
+
+Solution:
+A group with a commutative operation is called an Abelian group. Therefore, since an elliptic curve point.
+In addition, satisfies ( P + Q = Q + P ), ECC operates over an Abelian group.
+
+
+Key Takeaway:
+Elliptic Curve Cryptography relies on algebraic structures called **Abelian groups**, where point 
+addition is commutative. This property is fundamental in ensuring the correctness and security of ECC operations.
+
+
+
+Flag:
+crypto{abelian}
