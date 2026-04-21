@@ -1,1 +1,59 @@
- 
+41. Unpadded RSA Message Recovery
+
+Step 1
+Given:
+
+Ciphertext = C
+Public key = (N, E)
+Server decrypts but does not allow same ciphertext
+
+-So we cannot send C
+
+Step 2
+Trick: modify the ciphertext
+Pick any number:
+    S > 1
+
+Step 3
+Create new ciphertext
+   C' = (S^E * C) mod N
+
+Step 4
+Send to server
+     P' = decrypt(C')
+
+
+Step 5
+
+      P' = S * P mod N
+-The plaintext got multiplied by S
+
+Step 6
+Get original plaintext
+
+     P = P' / S
+-cannot divide
+
+Use inverse:
+       P = (P' * S^-1) mod N
+
+
+CODE 
+     from Crypto.Util.number import inverse
+     
+     S = 2
+     
+     C_prime = (pow(S, E, N) * C) % N
+     P_prime = oracle(C_prime)
+     
+     S_inv = inverse(S, N)
+     P = (P_prime * S_inv) % N
+
+
+Notes:
+
+-RSA lets you change ciphertext in a predictable way
+-If no division → use mod inverse
+-If no padding = easy to attack
+
+> Change ciphertext → get modified plaintext → fix it 
