@@ -1,0 +1,127 @@
+45. DSA Parameter Tampering
+
+Exploiting weak generator g in DSA
+
+Step 1
+Given:
+DSA parameters (p, q, g)
+
+    Modify:
+    g = 0
+
+Step 2
+> DSA Signature Components
+    r = (g^k mod p) mod q
+    s = (k⁻¹ * (H(msg) + x·r)) mod q
+
+Step 3
+> Substitute g = 0
+
+    r = (0^k mod p) mod q
+    r = 0
+    
+    s = (k⁻¹ * (H(msg) + x·0)) mod q
+    s = (k⁻¹ * H(msg)) mod q
+
+- r is always 0
+- s depends only on message hash
+
+Step 4
+> Verification Behavior
+
+Verification checks:
+v = ((g^(H(msg)/s) * y^(r/s)) mod p) mod q
+
+Since r = 0:
+    y^(r/s) = y^0 = 1
+    
+    g = 0 → g^(...) = 0
+    v = 0
+
+Result:
+    v == r → valid
+
+- Any signature with r = 0 passes verification
+- Any message is accepted
+
+Step 5
+> Using g = p + 1
+Property:
+    g mod p = 1
+
+Step 6
+> Effect on r
+    r = ((p+1)^k mod p) mod q
+    r = (1^k mod p) mod q
+    r = 1 mod q
+
+Step 7
+> Construct Magic Signature
+
+For any value z:
+
+    r = (y^z \bmod p) \bmod q
+    s = r \cdot z^{-1} \bmod q
+
+- z = arbitrary chosen value
+- no need for private key x
+- no need for real k
+
+Step 8
+> Result
+Generated (r, s) is valid for:
+  - any message
+  - any public key y
+
+Examples:
+"Hello, world"
+"Goodbye, world"
+
+Both verify successfully with same (r, s)
+
+
+
+CODE (Java)
+
+import java.math.BigInteger;
+
+public class DSAParameterTampering {
+public static void main(String[] args) {  
+
+    BigInteger p = new BigInteger("800000000000000089e1855218a0e7dac38136ffafa72eda7...", 16);  
+    BigInteger q = new BigInteger("f4f47f05794b256174bba6e9b396a7707e563c5b", 16);  
+
+    BigInteger y = new BigInteger("2d026f4bf30195ede3a088da85e398ef869611d0f68f07...", 16);  
+
+    BigInteger g = p.add(BigInteger.ONE);  
+
+    BigInteger z = new BigInteger("12345");  
+
+    BigInteger r = y.modPow(z, p).mod(q);  
+    BigInteger s = r.multiply(z.modInverse(q)).mod(q);  
+
+    System.out.println("Magic Signature:");  
+    System.out.println("r = " + r);  
+    System.out.println("s = " + s);  
+}  
+}
+
+Notes:
+
+> g = 0
+  - forces r = 0
+  - signature becomes universally valid
+> g = p + 1
+  - behaves as 1 mod p
+  - allows construction of fake signatures
+
+> z
+  - arbitrary value chosen by attacker
+> modInverse(q)
+  - used to compute division mod q
+
+
+> Manipulating generator g breaks DSA security
+g = 0 → all signatures valid
+g = p + 1 → forge signatures without private key
+> Proper parameter validation is required
