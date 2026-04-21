@@ -6,11 +6,11 @@
 
 | Metric                 | Target | Actual | Status |
 | ---------------------- | ------ | ------ | ------ |
-| Training Hours         | 15-20  |   10.5     | ☐ ✓  |
-| Challenges Solved      | 15-25  | 6 | ☐ ✔  |
+| Training Hours         | 15-20  |   19.5     | ☐ ✓  |
+| Challenges Solved      | 15-25  | 10 | ☐ ✔  |
 | Live CTF Participated  | 1-2    | 1  | ☐ ✔  |
 | CTF Challenges Solved  | 2-5    | 0  | ☐ ✔  |
-| Writeups Created       | 3-5    | 6  | ☐ ✔  |
+| Writeups Created       | 3-5    | 8  | ☐ ✔  |
 | New Techniques Learned | 2-3    | 6  | ☐ ✔  |
 
 ## Weekly Points Breakdown
