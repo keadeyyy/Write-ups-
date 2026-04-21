@@ -6,16 +6,16 @@
 
 | Metric               | Month Goal | Achieved | % of Goal |
 | -------------------- | ---------- | -------- | --------- |
-| Total Training Hours | 60-80      | 24    | 30–40%    |
-| Challenges Solved    | 60-100     | 11    | 11–18%    |
+| Total Training Hours | 60-80      | 34    | 42–57%    |
+| Challenges Solved    | 60-100     | 19    | 19–32%    |
 | Easy Challenges      | 30-40      | 6    | 15–20%    |
 | Medium Challenges    | 20-30      | 5    | 17–25%    |
-| Hard Challenges      | 5-10       | 0    | 0%    |
+| Hard Challenges      | 5-10       | 8    | 80–100%    |
 | Live CTFs Attended   | 4-6        | 2    | 33–50%    |
 | Live CTF Solves      | 10-20      | 0    | 0%    |
-| Writeups Created     | 15-20      | 13    | 65–85%    |
+| Writeups Created     | 15-20      | 25    | 125–167%    |
 
-## Monthly Points Total: 677 points
+## Monthly Points Total: 1,002 points
 
 **Point Milestones:**
 
@@ -24,7 +24,7 @@
 - 🥇 Gold (3000-3999 pts): Advanced Competitor
 - 💎 Platinum (4000+ pts): Elite Performer
 
-**Your Tier This Month:** Early Bronze (was not able to start from the 1st of the month)
+**Your Tier This Month:** Bronze
 
 ## Skill Progression Matrix
 
@@ -32,13 +32,13 @@ Rate yourself (1-5 scale: 1=Novice, 3=Intermediate, 5=Expert)
 
 |Specialty|Start of Month|End of Month|Growth|
 |---|---|---|---|
-|**Primary Specialty #1**||||
+|**Cryptography**||||
 |- Basic techniques|1|3|+2|
 |- Intermediate skills|1|2|+1|
 |- Advanced techniques|0|1|+1|
 |- Speed/efficiency|1|2|+1|
-|**Primary Specialty #2**||||
-|- Basic techniques|1|4|+3|
+|Forensics||||
+|- Basic techniques|1|3|+2|
 |- Intermediate skills|1|2|+1|
 |- Advanced techniques|0|1|+1|
 |- Speed/efficiency|1|2|+1|
@@ -47,8 +47,8 @@ Rate yourself (1-5 scale: 1=Novice, 3=Intermediate, 5=Expert)
 
 |CTF Name|Date|Rank|Solves|Time|Notes|
 |---|---|---|---|---|---|
-|Live CTF #1|Week 1|--|0|--|First exposure to CTF environment.|
-|Live CTF #2|Week 2|--|0|--|Attempted challenges, gained experience.|
+|TryHackMe|Week 1|--|0|--|First exposure to CTF environment.|
+|TryeHackMe|Week 2|--|0|--|Attempted challenges, gained experience.|
 
 ## Monthly Milestone Check
 
@@ -56,7 +56,7 @@ Based on your training program, check completed milestones:
 
 **3-Month Program:**
 
-- Month 1: [✗] 60+ challenges, [ ] 4 CTFs, [ ] Chosen specialties
+- Month 1: [✗] 60+ challenges, [ ] 4 CTFs, [✓] Chosen specialties
 - Month 2: [ ] 40+ medium challenges, [ ] 8 CTFs total
 - Month 3: [ ] 4-5 solves per CTF, [ ] Competition ready
 
