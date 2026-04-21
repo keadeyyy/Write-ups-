@@ -1,0 +1,149 @@
+46. RSA Parity Oracle
+
+Recovering plaintext using only parity (even/odd) oracle
+
+Step 1
+Generate RSA key pair (1024-bit)
+    Public key: (e, n)
+    Private key: d
+
+Step 2
+Given ciphertext
+
+    Base64:
+    VGhhdCdzIHdoeSBJIGZvdW5kIHlvdSBkb24ndCBwbGF5IGFyb3VuZCB3aXRoIHRoZSBGdW5reSBDb2xkIE1lZGluYQ==
+
+> Decode → plaintext message (hidden)
+
+> Encrypt using public key:
+    c = m^e mod n
+
+Step 3
+> Parity Oracle
+Function:
+    oracle(c):
+
+- decrypt: m = c^d mod n
+- return:
+  true  → if m is even
+  false → if m is odd
+
+- only reveals last bit of plaintext
+- no other information given
+
+Step 4
+> RSA Property
+Ciphertext manipulation:
+
+    (c * (2^e mod n)) mod n → encrypts (2m mod n)
+
+Effect:
+- multiplying ciphertext by 2^e doubles plaintext
+
+Step 5
+> Initial Bounds
+    Lower bound = 0
+    Upper bound = n
+
+Plaintext m ∈ [0, n]
+
+Step 6
+> Iterative Process
+Repeat for ~log2(n) times:
+
+    1. Multiply ciphertext:
+       c = (c * (2^e mod n)) mod n
+    
+    2. Query oracle:
+       check if decrypted value is even or odd
+    
+    3. Update bounds:
+    
+       if even:
+       m < n/2
+       upper = (lower + upper) / 2
+    
+       if odd:
+       m ≥ n/2
+       lower = (lower + upper) / 2
+
+- each step halves the range
+- binary search on plaintext
+
+Step 7
+> Convergence
+After enough iterations:
+    lower ≈ upper ≈ m
+
+Step 8
+> Result
+
+    Decrypted message:
+    "That's why I found you don't play around with the Funky Cold Medina"
+
+
+CODE (Java)
+
+import java.math.BigInteger;
+import java.util.Base64;
+
+public class RSAParityOracle {
+
+static BigInteger n, e, d;  
+
+public static void main(String[] args) {  
+
+    // Example values (replace with generated keys)  
+    e = BigInteger.valueOf(65537);  
+    // n, d should be initialized properly  
+
+    String b64 = "VGhhdCdzIHdoeSBJIGZvdW5kIHlvdSBkb24ndCBwbGF5IGFyb3VuZCB3aXRoIHRoZSBGdW5reSBDb2xkIE1lZGluYQ==";  
+    byte[] decoded = Base64.getDecoder().decode(b64);  
+
+    BigInteger m = new BigInteger(1, decoded);  
+    BigInteger c = m.modPow(e, n);  
+
+    BigInteger lower = BigInteger.ZERO;  
+    BigInteger upper = n;  
+
+    BigInteger twoPowE = BigInteger.valueOf(2).modPow(e, n);  
+
+    for (int i = 0; i < n.bitLength(); i++) {  
+
+        c = c.multiply(twoPowE).mod(n);  
+
+        boolean isEven = oracle(c);  
+
+        BigInteger mid = lower.add(upper).divide(BigInteger.TWO);  
+
+        if (isEven) {  
+            upper = mid;  
+        } else {  
+            lower = mid;  
+        }  
+
+        System.out.println(upper.toByteArray());  
+    }  
+
+    System.out.println(new String(upper.toByteArray()));  
+}  
+
+static boolean oracle(BigInteger c) {  
+    BigInteger m = c.modPow(d, n);  
+    return m.mod(BigInteger.TWO).equals(BigInteger.ZERO);  
+}  
+}
+
+Notes:
+> oracle(c)
+  - returns true if plaintext is even
+> twoPowE
+  - represents encryption of 2
+> multiply ciphertext
+  - doubles plaintext each iteration
+> lower / upper
+  - bounds for binary search
+> mid
+  - splits range into half
+> loop (bitLength times)
+  - enough iterations to recover plaintext
