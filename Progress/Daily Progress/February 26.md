@@ -6,7 +6,7 @@
 
 ### 1. Time Investment
 
-- [✔] Training time today: 2 hours
+- [✔] Training time today: 5 hours
 - [✔] Goal met? (Yes/No)
 - [✔] Consistency streak: 12 days
 
