@@ -23,9 +23,9 @@
 | --------------- | ----------------- | ------------- |
 | Easy            | 1 × 5 pts     | 5         |
 | Medium          | _____ × 15 pts    | _____         |
-| Hard            | _____ × 30 pts    | _____         |
+| Hard            | 3 × 30 pts    | _____         |
 | Expert          | _____ × 50 pts    | _____         |
-| **Daily Total** |                   | **_____**     |
+| **Daily Total** |                   | **95**     |
 
 ### 3. Quality Indicators
 
@@ -59,16 +59,22 @@ Which categories did you practice?
 
 **What went well today?**
 
-- I successfully applied the XOR operation to transform characters and reveal the hidden string.
+- I successfully applied the XOR operation to transform characters and reveal the hidden string
+  and how weak or reused nonces (k) in DSA can lead to private key recovery, including both brute-force
+  attacks and attacks using repeated nonces.
 
 **What challenged you?**
 
 - Understanding how XOR operations affect ASCII values when applied to characters.
+- Understanding the mathematical relationship between k, the signature values (r, s),
+  and how they can be rearranged to solve for the private key.
 
 **Key learning:**
 
 - XOR is a fundamental operation used in many cryptographic algorithms to transform or encrypt data.
+- The nonce k must always be random and unique. Any weakness or reuse in k directly exposes the private
+  key, making the entire system insecure.
 
 **Tomorrow's focus:**
 
-- Continue practicing cryptography challenges and review encoding techniques learned this week.
+- Continue practicing cryptographic attacks and focus on strengthening understanding of modular arithmetic and number theory.
