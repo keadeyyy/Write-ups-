@@ -1,0 +1,120 @@
+44. DSA Nonce Recovery from Repeated Nonce
+
+Recovering the private key when the same nonce k is reused
+
+Step 1
+Given:
+Multiple signed messages (each with trailing space)
+
+Public key (y):
+2d026f4bf30195ede3a088da85e398ef869611d0f68f07...
+
+Same domain parameters as previous challenge (p, q, g)
+
+Step 2
+Observation:
+Some messages share the same nonce k
+
+Effect:
+- same k → same r
+- signatures with identical r are candidates
+
+Step 3
+Given two signatures with same k:
+Message 1:
+m1, r, s1
+Message 2:
+m2, r, s2
+
+Step 4
+> Recover k
+
+k = \frac{m_1 - m_2}{s_1 - s_2} \bmod q
+
+- m1, m2 = hash values of messages
+- subtraction is done mod q
+- modular inverse required
+
+Step 5
+
+> Compute Private Key x
+x = \frac{s k - H(m)}{r} \bmod q
+
+- use either (m1, s1) or (m2, s2)
+- both produce same x
+
+Step 6
+
+> Process
+1. Parse all messages and signatures
+2. Find pairs with identical r
+3. Compute k using formula
+4. Compute x using recovered k
+5. Verify correctness
+
+Step 7
+> Result
+Recovered private key x
+
+    SHA-1 fingerprint:
+    ca8f6f7c66fa362d40760d135b763eb8527d3d52
+
+
+CODE (Java)
+
+import java.math.BigInteger;
+import java.util.*;
+
+public class DSANonceRecovery {
+static BigInteger q = new BigInteger("f4f47f05794b256174bba6e9b396a7707e563c5b", 16);  
+
+public static void main(String[] args) {  
+
+    // Example structure (populate from file)  
+    class Sig {  
+        BigInteger r, s, m;  
+        Sig(BigInteger r, BigInteger s, BigInteger m) {  
+            this.r = r; this.s = s; this.m = m;  
+        }  
+    }  
+
+    List<Sig> sigs = new ArrayList<>();  
+
+    //load actual data   
+
+    for (int i = 0; i < sigs.size(); i++) {  
+        for (int j = i + 1; j < sigs.size(); j++) {  
+
+            Sig a = sigs.get(i);  
+            Sig b = sigs.get(j);  
+
+            if (a.r.equals(b.r)) {  
+
+                BigInteger k = (a.m.subtract(b.m))  
+                        .multiply(a.s.subtract(b.s).modInverse(q))  
+                        .mod(q);  
+
+                BigInteger x = (a.s.multiply(k).subtract(a.m))  
+                        .multiply(a.r.modInverse(q))  
+                        .mod(q);  
+
+                System.out.println("Private key:");  
+                System.out.println(x.toString(16));  
+            }  
+        }  
+    }  
+}  
+}
+
+Notes:
+
+> same r
+  * indicates reused nonce k
+> (m1 - m2)
+  * difference of message hashes
+> (s1 - s2).modInverse(q)
+  * modular inverse for division
+> nested loop
+  * checks all signature pairs
+> a.r.equals(b.r)
+  * detects reused k
