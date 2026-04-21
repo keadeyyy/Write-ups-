@@ -13,7 +13,7 @@
 | Hard Challenges      | 5-10       | 8    | 80–100%    |
 | Live CTFs Attended   | 4-6        | 2    | 33–50%    |
 | Live CTF Solves      | 10-20      | 0    | 0%    |
-| Writeups Created     | 15-20      | 25    | 125–167%    |
+| Writeups Created     | 15-20      | 22    | 110–146%    |
 
 ## Monthly Points Total: 1,002 points
 
