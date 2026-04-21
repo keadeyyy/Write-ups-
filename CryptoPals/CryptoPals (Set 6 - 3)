@@ -1,0 +1,141 @@
+43. DSA Key Recovery from Nonce
+
+Recovering the private key when nonce k is weak
+
+Plain text:
+For those that envy a MC it can be hazardous to your health
+So be friendly, a matter of life and death, just like a etch-a-sketch
+
+Given:
+
+p = 800000000000000089e1855218a0e7dac38136ffafa72eda7...
+q = f4f47f05794b256174bba6e9b396a7707e563c5b
+g = 5958c9d3898b224b12672c0b98e06c60df923cb8bc999d11...
+
+Public key (y):
+84ad4719d044495496a3201c8ff484feb45b962e7302e56a39...
+
+Signature:
+r = 548099063082341131477253921760299949438196259240
+s = 857042759984254168557880549501802188789837994940
+
+SHA-1(msg):
+d2d0714f014a9784047eaeccf956520045c45265
+
+Converted to integer:
+H(msg) = 0xd2d0714f014a9784047eaeccf956520045c45265
+
+> DSA Signing Relation
+
+s = (k⁻¹ * (H(msg) + x·r)) mod q
+
+Rearranged to solve for private key x:
+
+x = \frac{s k - H(m)}{r} \bmod q
+
+Notes:
+
+* k = nonce (random per signature)
+* Weak implementation uses small k (0 to 2^16)
+* Brute force becomes possible
+
+> Attack Idea
+
+k is small → try all possible values
+
+For each k:
+
+* compute x using formula
+* verify if correct
+
+Verification condition:
+
+* recompute r using g^k mod p mod q
+* must match given r
+
+Valid k → correct private key x
+
+> Brute Force Range
+
+k ∈ [0, 65536]
+
+Total attempts: 2^16 (small enough)
+
+> Process
+
+For each k:
+
+1. Compute:
+   x = ((s * k) - H(msg)) * inverse(r, q) mod q
+
+2. Check:
+   r == (g^k mod p) mod q
+
+3. If true → x found
+
+> Result
+
+Recovered private key x produces correct signature
+
+SHA-1 fingerprint of x:
+0954edd5e0afe5542a4adf012611a91912a3ec16
+
+Notes:
+
+* Weak randomness in k breaks DSA
+* k must be unpredictable and unique
+* Reusing or limiting k leaks private key
+
+
+CODE (Java)
+import java.math.BigInteger;
+import java.security.MessageDigest;
+
+public class DSAKeyRecovery {
+public static void main(String[] args) throws Exception {  
+
+    BigInteger q = new BigInteger("f4f47f05794b256174bba6e9b396a7707e563c5b", 16);  
+    BigInteger p = new BigInteger("800000000000000089e1855218a0e7dac38136ffafa72eda7...", 16);  
+    BigInteger g = new BigInteger("5958c9d3898b224b12672c0b98e06c60df923cb8...", 16);  
+
+    BigInteger r = new BigInteger("548099063082341131477253921760299949438196259240");  
+    BigInteger s = new BigInteger("857042759984254168557880549501802188789837994940");  
+
+    BigInteger H = new BigInteger("d2d0714f014a9784047eaeccf956520045c45265", 16);  
+
+    for (int k = 1; k < 65536; k++) {  
+
+        BigInteger K = BigInteger.valueOf(k);  
+
+        BigInteger x = (s.multiply(K).subtract(H))  
+                .multiply(r.modInverse(q))  
+                .mod(q);  
+
+        BigInteger rTest = g.modPow(K, p).mod(q);  
+
+        if (rTest.equals(r)) {  
+            System.out.println("Private key found:");  
+            System.out.println(x.toString(16));  
+            break;  
+        }  
+    }  
+}  
+}
+
+Notes:
+
+> k loop (0 to 2^16)
+    * brute force due to weak nonce
+> r.modInverse(q)
+    * modular inverse of r
+> g.modPow(k, p)
+    * computes g^k mod p
+> .mod(q)
+    * reduces to DSA subgroup
+> rTest.equals(r)
+    * verifies correct k
+
+Summary:
+- Small nonce space allows brute force of k
+- k reveals private key x
+- DSA security depends on strong random k
