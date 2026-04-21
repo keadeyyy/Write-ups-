@@ -23,9 +23,9 @@
 | --------------- | ----------------- | ------------- |
 | Easy            | _____ × 5 pts     | _____         |
 | Medium          | 1 × 15 pts    | 15         |
-| Hard            | _____ × 30 pts    | _____         |
+| Hard            | 2 × 30 pts    | 60         |
 | Expert          | _____ × 50 pts    | _____         |
-| **Daily Total** |                   | **_____**     |
+| **Daily Total** |                   | **75**     |
 
 ### 3. Quality Indicators
 
@@ -49,7 +49,7 @@ Which categories did you practice?
 - [ ] OSINT
 - [ ] Other: ___________
 
-**Primary Specialty:** 120 minutes
+**Primary Specialty:** 300 minutes
 
 **Secondary Specialty:** 0 minutes
 
@@ -59,16 +59,20 @@ Which categories did you practice?
 
 **What went well today?**
 
-- I successfully converted hexadecimal data into bytes and then encoded it into Base64 format.
-
+- I successfully completed both medium and hard challenges, including understanding DSA parameter tampering and
+  how manipulating the generator can break the system. I also reinforced my basics through simpler encoding tasks
+  like Base64.
+  
 **What challenged you?**
 
-- Understanding the relationship between binary data, hexadecimal representation, and Base64 encoding.
-
+- It was challenging to fully grasp how changing values like g affects the entire DSA verification process and
+   why it allows signature forgery.
+  
 **Key learning:**
 
-- Base64 is widely used to represent binary data in ASCII form, especially when transmitting data over the web.
-
+- Strong parameter validation is critical in cryptography. Even if the algorithm is secure, improper setup
+  (like weak generators) can completely break it.
+  
 **Tomorrow's focus:**
 
-- Study how cryptographic systems convert messages into large numerical values.
+- Continue working on RSA-related problems and understand how mathematical properties can be exploited in attacks.
