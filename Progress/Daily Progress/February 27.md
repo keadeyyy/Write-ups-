@@ -5,7 +5,7 @@
 **Date:** February 27, 2026 | **Training Day:** 13/90
 ### 1. Time Investment
 
-- [✔] Training time today: 2 hours
+- [✔] Training time today: 5 hours
 - [✔] Goal met? (Yes/No)
 - [✔] Consistency streak: 13 days
 
@@ -48,7 +48,7 @@ Which categories did you practice?
 - [ ] OSINT
 - [ ] Other: ___________
 
-**Primary Specialty:** 120 minutes
+**Primary Specialty:** 300 minutes
 
 **Secondary Specialty:** 0 minutes
 
