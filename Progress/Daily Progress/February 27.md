@@ -22,9 +22,9 @@
 | --------------- | ----------------- | ------------- |
 | Easy            | _____ × 5 pts     | _____         |
 | Medium          | 1 × 15 pts    | 15         |
-| Hard            | _____ × 30 pts    | _____         |
+| Hard            | 3 × 30 pts    | _____         |
 | Expert          | _____ × 50 pts    | _____         |
-| **Daily Total** |                   | **_____**     |
+| **Daily Total** |                   | **105**     |
 
 ### 3. Quality Indicators
 
@@ -58,16 +58,19 @@ Which categories did you practice?
 
 **What went well today?**
 
-- I successfully converted hexadecimal data into bytes and then encoded it into Base64 format.
+- I was able to understand how the RSA parity oracle works and how a single bit of information (even/odd)
+  can be used to fully recover plaintext using a binary search approach.
 
 **What challenged you?**
 
-- Understanding the relationship between binary data, hexadecimal representation, and Base64 encoding.  
-
+- Visualizing how repeated ciphertext manipulation (multiplying by 2e)
+  affects the plaintext and how the bounds converge during the attack.
+  
 **Key learning:**
 
-- Base64 is widely used to represent binary data in ASCII form, especially when transmitting data over the web.
-
+- Even minimal information leakage (like parity) can completely break RSA if the system allows repeated queries.
+  This highlights the importance of secure padding and limiting oracle access.
+  
 **Tomorrow's focus:**
 
-- Study how cryptographic systems convert messages into large numerical values.
+- Explore more attacks related to RSA and DSA, especially those involving weak randomness or improper implementations.
