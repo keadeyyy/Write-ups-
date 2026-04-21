@@ -6,7 +6,7 @@
 
 ### 1. Time Investment
 
-- [✔] Training time today: 1.5 hours
+- [✔] Training time today: 5 hours
 - [✔] Goal met? (Yes/No)
 - [✔] Consistency streak: 14 days
 
@@ -49,7 +49,7 @@ Which categories did you practice?
 - [ ] OSINT
 - [ ] Other: ___________
 
-**Primary Specialty:** 90 minutes
+**Primary Specialty:** 300 minutes
 
 **Secondary Specialty:** 0 minutes
 
