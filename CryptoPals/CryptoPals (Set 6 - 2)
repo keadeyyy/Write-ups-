@@ -1,1 +1,147 @@
+42. Bleichenbacher's e=3 RSA Attack
+
+Forging an RSA signature without the private key
+
+Plain text:
+hi mom
+
+Goal:
+Create a forged RSA signature that is accepted as valid
+
+> Hashing the Plain Text
+
+Using SHA-1
+
+"hi mom" → SHA1 → HASH (20 bytes)
+
+Example (hex form):
+925a89b43f3caff507db0a86d20a2428007f10b6
+
+> PKCS#1 v1.5 Block Structure
+
+Standard format:
+00 01 FF FF ... FF 00 ASN.1 HASH
+
+Accepted structure (weak verification):
+00 01 FF 00 ASN.1 HASH + remaining bytes
+
+> ASN.1 Prefix (SHA-1)
+
+ASN.1 = 3021300906052b0e03021a05000414
+
+Constructed block:
+
+00 01 FF 00
+3021300906052b0e03021a05000414
+HASH
+00 00 00 00 00 ... (pad to 128 bytes)
+
+Notes:
+* Total size = 1024 bits (128 bytes)
+* Remaining bytes filled with zeros
+
+> Conversion
+
+block → large integer value
+
+> Cube Root Operation
+
+Since e = 3
+
+signature ≈ cube_root(block)
+
+Adjustment:
+signature = cube_root(block) + 1
+
+> Forged Signature
+
+signature → forged RSA signature
+
+Verification:
+signature^3 → reconstructed block
+
+Resulting prefix:
+00 01 FF 00 ASN.1 HASH ...
+
+Notes:
+* Only prefix is validated
+* Full padding is not checked
+* Remaining bytes ignored
+
+Signature is accepted as valid
+
+To make it easier and automatic...
+CODE (Java)
+        
+        import java.math.BigInteger;
+        import java.security.MessageDigest;
+        
+        public class BleichenbacherAttack {
+        
+        ```
+        public static void main(String[] args) throws Exception {  
+        
+            String message = "hi mom";  
+        
+            MessageDigest md = MessageDigest.getInstance("SHA-1");  
+            byte[] hash = md.digest(message.getBytes());  
+        
+            byte[] asn1 = new byte[]{  
+                0x30,0x21,0x30,0x09,0x06,0x05,0x2b,0x0e,  
+                0x03,0x02,0x1a,0x05,0x00,0x04,0x14  
+            };  
+        
+            byte[] block = new byte[128];  
+        
+            block[0] = 0x00;  
+            block[1] = 0x01;  
+            block[2] = (byte)0xff;  
+            block[3] = 0x00;  
+
+            System.arraycopy(asn1, 0, block, 4, asn1.length);  
+            System.arraycopy(hash, 0, block, 4 + asn1.length, hash.length);  
+        
+            BigInteger num = new BigInteger(1, block);  
+        
+            BigInteger sig = cubeRoot(num).add(BigInteger.ONE);  
+        
+            System.out.println(sig.toString(16));  
+        }  
+        
+        public static BigInteger cubeRoot(BigInteger n) {  
+            BigInteger low = BigInteger.ZERO;  
+            BigInteger high = n;  
+
+        while (low.compareTo(high) < 0) {  
+            BigInteger mid = low.add(high).shiftRight(1);  
+            BigInteger midCubed = mid.pow(3);  
+    
+            if (midCubed.compareTo(n) < 0)  
+                low = mid.add(BigInteger.ONE);  
+            else  
+                high = mid;  
+        }  
+    
+        return low;  
+    }     
+}
+
+Notes:
+> MessageDigest.getInstance("SHA-1")
+  * computes hash of the message
+> ASN.1 prefix
+  * identifies SHA-1 structure
+> byte[128]
+  * 1024-bit RSA block size
+> 00 01 FF 00
+  * minimal padding used
+> cubeRoot()
+  * computes integer cube root
+> +1 adjustment
+  * ensures cube produces correct prefix
+
+Summary:
+-Construct a valid-looking block
+-compute its cube root
+-use result as forged signature
 
