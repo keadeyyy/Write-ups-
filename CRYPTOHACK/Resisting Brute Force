@@ -1,0 +1,28 @@
+Resisting Brute Force
+
+Problem Summary
+
+- This challenge discusses the theoretical security of AES and how brute force is considered the baseline attack.
+- It mentions that any attack faster than brute force is considered a “break,” even if only slightly better.
+
++ Key hint:
+There exists an attack better than brute force that reduces AES-128 security from 128 bits to 126.1 bits.
+
+
++ Question:
+What is the name of the best single-key attack against AES?
+
++ Approach
+From cryptography knowledge, the best known attack on AES (without exploiting implementation flaws) is the:
+"Biclique Attack"
+
+- Slightly reduces complexity from 2^128 to about 2^126.1
+- Does not practically break AES
+- Is mostly of theoretical importance
+
++ Key: crypto{biclique}
+
++ Key Takeaways
+- AES is still considered secure despite minor theoretical improvements.
+- “Breaking” a cipher in academia ≠ practical vulnerability.
+- Biclique attack is the best known single-key attack on AES.
