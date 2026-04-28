@@ -1,0 +1,33 @@
+Structure of AES
+
++ Problem Summary
+
+This challenge explains the full structure of AES:
+- KeyExpansion
+- Initial AddRoundKey
+- 10 rounds of transformations
+
++ Task:
+- Convert between bytes and matrix format
+- Implement matrix2bytes
+
++ Approach
+- AES represents data as a 4x4 matrix (column-major order).
+
++ Convert matrix → bytes:
+- Implementation:
+CODE (Python)
+      def matrix2bytes(matrix):
+          result = []
+          for col in range(4):
+              for row in range(4):
+                  result.append(matrix[row][col])
+          return bytes(result)
+
++ Key: crypto{matrix_reconstruction}
+(replace with actual output from run)
+
++ Key Takeaways
+- AES uses column-major order
+- Understanding data representation is crucial in crypto challenges
+- Structure matters as much as algorithms
