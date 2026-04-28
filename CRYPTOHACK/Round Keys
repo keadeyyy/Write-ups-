@@ -1,0 +1,39 @@
+Round Keys
+
++ Problem Summary
+- This challenge focuses on the AddRoundKey step in AES:
+
+- It XORs the state with the round key
+- This is the only step where the key is directly applied
+
++ Task:
+Complete the add_round_key function
+Use matrix2bytes to extract the plaintext
+
++ Approach
+- Key concept:
+    - AES state is a 4x4 matrix of bytes
+    - AddRoundKey performs element-wise XOR
+- Implementation:
+CODE (Python)
+    def add_round_key(state, round_key):
+        result = []
+        for i in range(4):
+            row = []
+            for j in range(4):
+                row.append(state[i][j] ^ round_key[i][j])
+            result.append(row)
+        return result
+    
+After applying:
+- Convert matrix back to bytes using matrix2bytes()
+
++ Key: crypto{r0undk3y_x0r}
+
+(example format — replace with actual output if different)
+
++ Key Takeaways
+- XOR is reversible:
+      A⊕B⊕B=A
+- AddRoundKey is critical because it injects the secret key
+- AES heavily relies on repeated key mixing
