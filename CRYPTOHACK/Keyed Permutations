@@ -1,0 +1,23 @@
+Keyed Permutations
+
++ Problem Summary
+- AES is described as a keyed permutation, meaning:
+
+- Each key defines a unique mapping from input → output
+- The mapping must be reversible
+
++ Question:
+- What is the mathematical term for a one-to-one correspondence?
+
++ Approach
+- A one-to-one and onto mapping in mathematics is called a:
+"Bijection"
+
+- Every input maps to a unique output
+- Every output maps back to a unique input
+
++ Key: crypto{bijection}
+
++ Key Takeaways:
+- AES encryption must be reversible → requires a bijection.
+- Without a bijection, decryption would be impossible.
